@@ -1,6 +1,6 @@
 <?php
 
-require_once("config.php");
+require_once(__DIR__."/../bbdd/config.php");
 
 //Esta funcion conecta con la BBDD y me devuelve el PDO
 function conectaDb()

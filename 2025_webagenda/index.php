@@ -1,6 +1,6 @@
 <?php
     
-    require_once("funciones.php");
+    require_once("./includes/funciones.php");
 
     $pdo = conectaDb();
     $consulta = "SELECT * FROM $cfg[nombretabla]";
