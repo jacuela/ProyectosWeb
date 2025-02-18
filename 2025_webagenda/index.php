@@ -2,20 +2,35 @@
     
     require_once("./includes/funciones.php");
 
-    $pdo = conectaDb();
-    $consulta = "SELECT * FROM $cfg[nombretabla]";
+    $pdo = conectaDb2();
 
+   
+
+    $consulta = "SELECT * FROM $cfg[nombretabla]";
     $resultado = $pdo->query($consulta);
 
+    var_dump($pdo);
+    print "<br>";
+    var_dump($resultado);
+
+    //print("<pre>");
+    //print_r("Filas obtenidas:".$resultado->rowCount());
+   
+    
+    //print("</pre>");
+
+    // $datos=$resultado->fetchAll();
     // print("<pre>");
-    // print_r("Filas obtenidas:".$resultado->rowCount());
+    // print_r($datos);
     // print("</pre>");
 
-    $datos=$resultado->fetchAll();
-    print("<pre>");
-    print_r($datos);
-    print("</pre>");
+    // print($datos[0]['fecha_nac']);
  
+    // $date = new DateTime($datos[0]['fecha_nac']);
+    // echo $date->format('d-m-Y');
+
+    //  para select -> SELECT DATE_FORMAT(BirthDate, "%d-%m-%Y") FROM Employees;
+
 
 ?>
 
@@ -29,38 +44,38 @@
 </head>
 <body>
 <?php
-        $pdo = conectaDb();
-        $consulta = "SELECT * FROM $cfg[nombretabla]";
+        // $pdo = conectaDb();
+        // $consulta = "SELECT * FROM $cfg[nombretabla]";
 
-        $resultado = $pdo->query($consulta);
-        if (!$resultado) {
-            print "    <p class='error'>Error en la consulta. SQLSTATE[{$pdo->errorCode()}]: {$pdo->errorInfo()[2]}</p>\n";
-        } else {
-            print "    <p>Listado completo de registros:</p>\n";
-            print "\n";
-            print "    <table class=\"conborde franjas\">\n";
-            print "      <thead>\n";
-            print "        <tr>\n";
-            print "          <th>ID</th>\n";
-            print "          <th>Nombre</th>\n";
-            print "          <th>Apellidos</th>\n";
-            print "          <th>Email</th>\n";
-            print "          <th>Fecha Nacimiento</th>\n";
-            print "        </tr>\n";
-            print "      </thead>\n";
-            foreach ($resultado as $registro) {
-                print "      <tr>\n";
-                print "        <td>$registro[id]</td>\n";
-                print "        <td>$registro[nombre]</td>\n";
-                print "        <td>$registro[apellidos]</td>\n";
-                print "        <td>$registro[email]</td>\n";
-                print "        <td>$registro[fecha_nac]</td>\n";
-                print "      </tr>\n";
-            }
-            print "    </table>\n";
-        }
+        // $resultado = $pdo->query($consulta);
+        // if (!$resultado) {
+        //     print "    <p class='error'>Error en la consulta. SQLSTATE[{$pdo->errorCode()}]: {$pdo->errorInfo()[2]}</p>\n";
+        // } else {
+        //     print "    <p>Listado completo de registros:</p>\n";
+        //     print "\n";
+        //     print "    <table class=\"conborde franjas\">\n";
+        //     print "      <thead>\n";
+        //     print "        <tr>\n";
+        //     print "          <th>ID</th>\n";
+        //     print "          <th>Nombre</th>\n";
+        //     print "          <th>Apellidos</th>\n";
+        //     print "          <th>Email</th>\n";
+        //     print "          <th>Fecha Nacimiento</th>\n";
+        //     print "        </tr>\n";
+        //     print "      </thead>\n";
+        //     foreach ($resultado as $registro) {
+        //         print "      <tr>\n";
+        //         print "        <td>$registro[id]</td>\n";
+        //         print "        <td>$registro[nombre]</td>\n";
+        //         print "        <td>$registro[apellidos]</td>\n";
+        //         print "        <td>$registro[email]</td>\n";
+        //         print "        <td>$registro[fecha_nac]</td>\n";
+        //         print "      </tr>\n";
+        //     }
+        //     print "    </table>\n";
+        // }
 
-        ?>
+        // ?>
 
 
        

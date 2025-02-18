@@ -9,12 +9,19 @@ function conectaDb()
 
     try {
         //Conecto a una bbdd concreta
-        $tmp = new PDO("mysql:host=$cfg[mysqlHost];dbname=$cfg[mysqlDatabase];charset=utf8mb4",
+        $dsn = 'mysql:dbname=agenda;host=127.0.0.1;port=3307;charset=utf8mb4';
+        $usuario = 'root';
+        $contraseña = '';
+
+        $tmp = new PDO("mysql:dbname=$cfg[mysqlDatabase];host=$cfg[mysqlHost];port=$cfg[port];charset=utf8mb4",
                                                           $cfg["mysqlUser"],    
                                                           $cfg["mysqlPassword"]);
+        echo "EXITO en la conexión indicand la bbdd. <br>";
+
     } catch (PDOException $e) {
         //Conecto pero sin escoger la bbdd. Por ejemplo, si voy a crearla
-         $tmp = new PDO("mysql:host=$cfg[mysqlHost];charset=utf8mb4", 
+         echo "Fallo primera conexion. No encuentro la base de datos $cfg[mysqlDatabase] <br>";  
+         $tmp = new PDO("mysql:host=$cfg[mysqlHost];port=$cfg[port];charset=utf8mb4", 
                                                      $cfg["mysqlUser"], 
                                                      $cfg["mysqlPassword"]);
     } catch (PDOException $e) {
@@ -26,4 +33,31 @@ function conectaDb()
         $tmp->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
         return $tmp;
     }
+}
+
+
+function conectaDb2()
+{
+    global $cfg;
+
+    $dsn = "mysql:dbname=$cfg[mysqlDatabase];host=127.0.0.1;port=$cfg[port];charset=utf8mb4";  //esta SI chequea el puerto
+
+    //$dsn = "mysql:dbname=$cfg[mysqlDatabase];host=localhost;port=$cfg[port];charset=utf8mb4";  //esta siempre conecta sin importar el puerto
+
+
+    $usuario = "root";
+    $contraseña = "";
+    
+
+
+
+    try {
+        $gbd = new PDO($dsn, $usuario, $contraseña);
+        echo "EXITO en la conexión. <br>";
+        return $gbd;
+    } catch (PDOException $e) {
+        echo 'Falló la conexión: ' . $e->getMessage().'\n';
+        return null;
+    }
+
 }

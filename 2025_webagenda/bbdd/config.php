@@ -7,7 +7,8 @@ define("MYSQL", 1);                         // Base de datos MySQL
 $cfg["dbMotor"] = MYSQL;                                   // Valores posibles: MYSQL o SQLITE
 
 // Configuración para MySQL
-$cfg["mysqlHost"]     = "localhost";                        // Nombre de host
+$cfg["mysqlHost"]     = "localhost";    //127.0.0.1 para chequear puerto
+$cfg["port"] = "3306";                        // Puerto
 $cfg["mysqlUser"]     = "root";           // Nombre de usuario
 $cfg["mysqlPassword"] = "";                                 // Contraseña de usuario
 $cfg["mysqlDatabase"] = "agenda";           // Nombre de la base de datos
