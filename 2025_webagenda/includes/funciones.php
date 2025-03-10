@@ -38,17 +38,12 @@ function conectaDb()
 
 function conectaDb2()
 {
-    global $cfg;
+    // global $cfg;
+    //$dsn = "mysql:dbname=$cfg[mysqlDatabase];host=127.0.0.1;port=$cfg[port];charset=utf8mb4";  //esta SI chequea el puerto
 
-    $dsn = "mysql:dbname=$cfg[mysqlDatabase];host=127.0.0.1;port=$cfg[port];charset=utf8mb4";  //esta SI chequea el puerto
-
-    //$dsn = "mysql:dbname=$cfg[mysqlDatabase];host=localhost;port=$cfg[port];charset=utf8mb4";  //esta siempre conecta sin importar el puerto
-
-
+    $dsn = 'mysql:dbname=agenda;host=127.0.0.1;port=3306;charset=utf8mb4';
     $usuario = "root";
     $contraseña = "";
-    
-
 
 
     try {

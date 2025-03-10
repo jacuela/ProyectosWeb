@@ -13,3 +13,5 @@ $cfg["mysqlUser"]     = "root";           // Nombre de usuario
 $cfg["mysqlPassword"] = "";                                 // Contraseña de usuario
 $cfg["mysqlDatabase"] = "agenda";           // Nombre de la base de datos
 $cfg["nombretabla"] = "contactos";       //Tabla usado en el CRUD
+
+
